@@ -1,0 +1,225 @@
+.smpp-wrapper{
+max-width:900px;
+margin:0 auto;
+font-family:Arial,sans-serif;
+color:#1d2433;
+}
+
+.smpp-title{
+margin-bottom:16px;
+text-align:center;
+}
+
+/* PANEL */
+
+.smpp-panel{
+background:#fff;
+border:1px solid #d9dce3;
+border-radius:12px;
+padding:10px 18px 18px 18px;
+margin-bottom:16px;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* GRID */
+
+.smpp-grid{
+display:grid;
+gap:12px;
+grid-template-columns:repeat(5,1fr);
+}
+
+.smpp-grid label span{
+display:block;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.smpp-grid select{
+width:100%;
+padding:6px;
+border-radius:6px;
+border:1px solid #cfd6e0;
+}
+
+/* BUTTON */
+
+.smpp-btn{
+background:#0b74b6;
+color:#fff;
+border:0;
+border-radius:8px;
+padding:10px 14px;
+cursor:pointer;
+font-weight:700;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+transition:all .2s ease;
+margin-top:12px;   /* 👈 এই লাইনটা নতুন যোগ করো */
+}
+
+.smpp-btn:hover{
+background:#085c90;
+transform:translateY(-1px);
+}
+
+/* TIMER & SCORE CONTAINER */
+
+.smpp-meta{
+display:flex !important;
+flex-direction:row !important;
+flex-wrap:nowrap !important;
+gap:10px;
+margin-bottom:15px;
+background:transparent !important;
+border:none !important;
+padding:0 !important;
+justify-content:center;
+}
+
+/* TIMER & SCORE BOX */
+
+.smpp-meta-box{
+background:#f5f8fc !important;
+border:1px solid #cfd6e0 !important;
+border-radius:10px !important;
+padding:8px 14px !important;
+font-weight:600;
+font-size:14px;
+display:inline-flex !important;
+align-items:center !important;
+gap:6px;
+box-shadow:0 1px 4px rgba(0,0,0,0.08);
+white-space:nowrap;
+flex:0 1 auto;
+}
+
+/* QUESTION */
+
+.smpp-question{
+margin-bottom:10px;
+background:#fff5c8;
+padding:12px;
+border-radius:8px;
+border:1px solid #f0e2a3;
+font-size:17px;
+line-height:1.6;
+font-weight:600;
+}
+
+/* OPTIONS */
+
+.smpp-options{
+display:grid;
+gap:10px;
+}
+
+.smpp-option{
+text-align:left;
+border:1px solid #b9c2cf;
+border-radius:8px;
+background:#f5f8fc;
+padding:11px;
+cursor:pointer;
+color:#2f6f9f;
+transition:all .2s ease;
+-webkit-tap-highlight-color:transparent;
+}
+
+.smpp-option:hover{
+background:#e8f0fa;
+border-color:#2f6f9f;
+transform:scale(1.01);
+color:#2f6f9f;
+}
+
+.smpp-option.locked{
+cursor:not-allowed;
+pointer-events:none;
+opacity:1;
+color:#2f6f9f;
+}
+
+.smpp-option.correct{
+background:#43b047;
+border-color:#2e8a31;
+color:#fff;
+pointer-events:none;
+}
+
+.smpp-option.wrong{
+background:#e84545;
+border-color:#b62f2f;
+color:#fff;
+pointer-events:none;
+}
+
+/* ACTION */
+
+.smpp-actions{
+margin-top:12px;
+}
+
+/* REPORT */
+
+.smpp-report-list{
+margin:12px 0 0;
+padding-left:20px;
+}
+
+.smpp-finish{
+margin:0;
+padding:12px;
+background:#e9f7ec;
+border-radius:8px;
+}
+
+/* TABLET */
+
+@media (max-width:900px){
+
+.smpp-grid{
+grid-template-columns:1fr 1fr 1fr;
+}
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+.smpp-grid{
+grid-template-columns:1fr;
+}
+
+.smpp-question{
+font-size:16px;
+padding:10px;
+}
+
+.smpp-option{
+padding:10px;
+font-size:15px;
+}
+
+.smpp-panel{
+padding:14px;
+}
+
+/* TIMER & SCORE – now identical to PC */
+.smpp-meta{
+gap:10px;
+}
+
+.smpp-meta-box{
+padding:8px 14px !important;
+font-size:14px;
+}
+/* Force PC styles on all devices */
+.smpp-meta {
+  gap: 10px !important;
+}
+.smpp-meta-box {
+  padding: 8px 14px !important;
+  font-size: 14px !important;
+}
+}
