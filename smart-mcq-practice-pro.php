@@ -165,7 +165,7 @@ class Smart_MCQ_Practice_Tool {
                         <th scope="row"><label for="smpp_csv_file"><?php esc_html_e('CSV File', 'smart-mcq-practice-pro'); ?></label></th>
                         <td>
                             <input name="smpp_csv_file" type="file" id="smpp_csv_file" accept=".csv,text/csv" required />
-                            <p class="description"><?php esc_html_e('Required columns: medium, semester, subject, chapter, topic, question, option_a, option_b, option_c, option_d, correct, explanation, link', 'smart-mcq-practice-pro'); ?></p>
+                            <p class="description"><?php esc_html_e('Required columns: medium, exam, subject, chapter, topic, question, option_a, option_b, option_c, option_d, correct, explanation, link', 'smart-mcq-practice-pro'); ?></p>
                         </td>
                     </tr>
                     </tbody>

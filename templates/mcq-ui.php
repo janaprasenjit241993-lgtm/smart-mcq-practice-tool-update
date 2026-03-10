@@ -14,8 +14,8 @@ if (! defined('ABSPATH')) {
                 <select id="smpp-medium"><option value=""><?php esc_html_e('Select Medium', 'smart-mcq-practice-pro'); ?></option></select>
             </label>
             <label>
-                <span><?php esc_html_e('Choose Semester', 'smart-mcq-practice-pro'); ?></span>
-                <select id="smpp-semester"><option value=""><?php esc_html_e('Select Semester', 'smart-mcq-practice-pro'); ?></option></select>
+                <span><?php esc_html_e('Choose Exam', 'smart-mcq-practice-pro'); ?></span>
+                <select id="smpp-exam"><option value=""><?php esc_html_e('Select Exam', 'smart-mcq-practice-pro'); ?></option></select>
             </label>
             <label>
                 <span><?php esc_html_e('Choose Subject', 'smart-mcq-practice-pro'); ?></span>

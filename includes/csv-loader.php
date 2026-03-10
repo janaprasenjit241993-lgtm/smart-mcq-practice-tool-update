@@ -8,7 +8,7 @@ class Smart_MCQ_CSV_Loader {
     /** @var string[] */
     private $required_columns = array(
         'medium',
-        'semester',
+        'exam',
         'subject',
         'chapter',
         'topic',
@@ -113,7 +113,7 @@ class Smart_MCQ_CSV_Loader {
                 if ($column === 'correct') {
                     $value = sanitize_key($value);
                 }
-                if (in_array($column, array('medium', 'semester', 'subject', 'chapter', 'topic'), true)) {
+                if (in_array($column, array('medium', 'exam', 'subject', 'chapter', 'topic'), true)) {
                     $value = sanitize_text_field($value);
                 }
                 $row[$column] = $value;
