@@ -30,7 +30,7 @@ class Smart_MCQ_Ajax_Handler {
 
         $filters = array(
             'mediums'   => $this->unique_values($questions, 'medium'),
-            'semesters' => $this->unique_values($questions, 'semester'),
+            'exams' => $this->unique_values($questions, 'exam'),
             'subjects'  => $this->unique_values($questions, 'subject'),
             'chapters'  => $this->unique_values($questions, 'chapter'),
             'topics'    => $this->unique_values($questions, 'topic'),
@@ -45,7 +45,7 @@ class Smart_MCQ_Ajax_Handler {
 
         $criteria = array(
             'medium'   => isset($_POST['medium']) ? sanitize_text_field(wp_unslash($_POST['medium'])) : '',
-            'semester' => isset($_POST['semester']) ? sanitize_text_field(wp_unslash($_POST['semester'])) : '',
+            'exam' => isset($_POST['exam']) ? sanitize_text_field(wp_unslash($_POST['exam'])) : '',
             'subject'  => isset($_POST['subject']) ? sanitize_text_field(wp_unslash($_POST['subject'])) : '',
             'chapter'  => isset($_POST['chapter']) ? sanitize_text_field(wp_unslash($_POST['chapter'])) : '',
             'topic'    => isset($_POST['topic']) ? sanitize_text_field(wp_unslash($_POST['topic'])) : '',

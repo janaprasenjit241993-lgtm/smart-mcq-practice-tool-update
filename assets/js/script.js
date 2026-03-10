@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
 
-    const FILTER_FIELDS = ['medium', 'semester', 'subject', 'chapter', 'topic'];
+    const FILTER_FIELDS = ['medium', 'exam', 'subject', 'chapter', 'topic'];
 
     const state = {
         questionBank: [],
@@ -15,7 +15,7 @@
 
     const dom = {
         medium: $('#smpp-medium'),
-        semester: $('#smpp-semester'),
+        exam: $('#smpp-exam'),
         subject: $('#smpp-subject'),
         chapter: $('#smpp-chapter'),
         topic: $('#smpp-topic'),
@@ -42,7 +42,7 @@
 
     function bindEvents() {
         dom.medium.on('change', onMediumChange);
-        dom.semester.on('change', onSemesterChange);
+        dom.exam.on('change', onExamChange);
         dom.subject.on('change', onSubjectChange);
         dom.chapter.on('change', onChapterChange);
         dom.topic.on('change', onTopicChange);
@@ -54,7 +54,7 @@
 
     function initializeFilterState() {
         resetSelect(dom.medium, 'Select Medium', false);
-        resetSelect(dom.semester, 'Select Semester', true);
+        resetSelect(dom.exam, 'Select Exam', true);
         resetSelect(dom.subject, 'Select Subject', true);
         resetSelect(dom.chapter, 'Select Chapter', true);
         resetSelect(dom.topic, 'Select Topic', true);
@@ -81,7 +81,7 @@
     function onMediumChange() {
         const medium = safeValue(dom.medium.val());
 
-        resetSelect(dom.semester, 'Select Semester', !medium);
+        resetSelect(dom.exam, 'Select Exam', !medium);
         resetSelect(dom.subject, 'Select Subject', true);
         resetSelect(dom.chapter, 'Select Chapter', true);
         resetSelect(dom.topic, 'Select Topic', true);
@@ -90,33 +90,33 @@
             return;
         }
 
-        const semesters = getUniqueValues(state.questionBank, function (row) {
+        const exams = getUniqueValues(state.questionBank, function (row) {
             return safeValue(row.medium) === medium;
-        }, 'semester');
+        }, 'exam');
 
-        if (!semesters.length) {
+        if (!exams.length) {
             return;
         }
 
-        populateSelect(dom.semester, semesters, 'Select Semester');
-        dom.semester.prop('disabled', false);
+        populateSelect(dom.exam, exams, 'Select Exam');
+        dom.exam.prop('disabled', false);
     }
 
-    function onSemesterChange() {
+    function onExamChange() {
         const medium = safeValue(dom.medium.val());
-        const semester = safeValue(dom.semester.val());
+        const exam = safeValue(dom.exam.val());
 
-        resetSelect(dom.subject, 'Select Subject', !semester);
+        resetSelect(dom.subject, 'Select Subject', !exam);
         resetSelect(dom.chapter, 'Select Chapter', true);
         resetSelect(dom.topic, 'Select Topic', true);
 
-        if (!medium || !semester) {
+        if (!medium || !exam) {
             return;
         }
 
         const subjects = getUniqueValues(state.questionBank, function (row) {
             return safeValue(row.medium) === medium
-                && safeValue(row.semester) === semester;
+                && safeValue(row.exam) === exam;
         }, 'subject');
 
         if (!subjects.length) {
@@ -129,19 +129,19 @@
 
     function onSubjectChange() {
         const medium = safeValue(dom.medium.val());
-        const semester = safeValue(dom.semester.val());
+        const exam = safeValue(dom.exam.val());
         const subject = safeValue(dom.subject.val());
 
         resetSelect(dom.chapter, 'Select Chapter', !subject);
         resetSelect(dom.topic, 'Select Topic', true);
 
-        if (!medium || !semester || !subject) {
+        if (!medium || !exam || !subject) {
             return;
         }
 
         const chapters = getUniqueValues(state.questionBank, function (row) {
             return safeValue(row.medium) === medium
-                && safeValue(row.semester) === semester
+                && safeValue(row.exam) === exam
                 && safeValue(row.subject) === subject;
         }, 'chapter');
 
@@ -155,19 +155,19 @@
 
     function onChapterChange() {
         const medium = safeValue(dom.medium.val());
-        const semester = safeValue(dom.semester.val());
+        const exam = safeValue(dom.exam.val());
         const subject = safeValue(dom.subject.val());
         const chapter = safeValue(dom.chapter.val());
 
         resetSelect(dom.topic, 'Select Topic', !chapter);
 
-        if (!medium || !semester || !subject || !chapter) {
+        if (!medium || !exam || !subject || !chapter) {
             return;
         }
 
         const topics = getUniqueValues(state.questionBank, function (row) {
             return safeValue(row.medium) === medium
-                && safeValue(row.semester) === semester
+                && safeValue(row.exam) === exam
                 && safeValue(row.subject) === subject
                 && safeValue(row.chapter) === chapter;
         }, 'topic');
